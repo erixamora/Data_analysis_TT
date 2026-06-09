@@ -1,0 +1,22 @@
+Executive Summary 
+
+Context and Objective
+The central question of this analysis is whether a country’s level of economic development—measured as GDP per capita—correlates with the intensity of urban traffic in its major cities. It is assumed that the higher the GDP,
+the more cities invest in infrastructure and public transportation, which would result in less congestion—a point that remains somewhat unclear. The key variables were `jams_delay`, which indicates the average traffic delay time, and `city_gdp_capita`, which provides an estimate of each city’s GDP.
+
+Data Coverage
+We analyzed data from 2024 covering 15 cities in 7 Latin American countries. The cities are: Belo Horizonte, Bogotá, Brasília, Buenos Aires, Curitiba, Fortaleza, Lima, Mexico City, Montevideo, Porto Alegre, Recife, Rio de Janeiro, Salvador, Santiago, and São Paulo.
+
+Methodology
+After successfully loading the datasets, the columns were standardized to snake_case format using `.rename()`. The data types for the date fields were converted using pandas. Additionally, the data was formatted correctly, as it contained symbols such as % or periods where they should not have been;
+these values were converted from `int` to `float`. The data was grouped by city and year, as these are the key columns found in both dataframes. An INNER join was used to combine key variables such as jams_delay and city_gpd_capita into a single dataframe.
+Validations were performed at each step to verify the correct modification and integration of the dataframes.
+
+Initial Findings and Recommendations
+The use of graphs allowed us to identify the general trend, which indicates that countries with higher per capita income in the sample tend to have cities with lower traffic intensity. However, outliers such as Mexico require a separate analysis because they cannot be treated with the same model as the rest.
+The relevant question for Mexico is not whether it has heavy traffic, but whether the rate of congestion growth exceeds infrastructure expansion in recent years; we suggest creating a time series.
+The current dataset has two structural limitations that prevent definitive conclusions: the number of countries is insufficient for robust statistical inference, and a single year does not allow us to distinguish causality from correlation.
+
+Which city—Bogotá, Lima, Buenos Aires, or some other specific city—shows the strongest significant correlation between high levels of traffic congestion and low economic productivity indicators, suggesting that it should be a priority for investment in transportation infrastructure?
+
+Bogotá is the city that shows the strongest significant correlation between high traffic congestion and low economic productivity, and is therefore the strongest candidate for priority investment in transportation infrastructure.
